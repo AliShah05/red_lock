@@ -1,0 +1,354 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 15, 15, 15;
+  --background-end-rgb: 25, 25, 25;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 15, 15, 15;
+    --background-end-rgb: 25, 25, 25;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 95%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 95%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 220 9% 95%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 95%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 9% 95%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 9% 95%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 0 84% 60%;
+    --chart-1: 0 84% 60%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 95%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 95%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 220 9% 95%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 95%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 9% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 9% 95%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 0 84% 60%;
+    --chart-1: 0 84% 60%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 13% 12%) 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Адаптивный слайдер */
+@layer components {
+  .carousel-container {
+    @apply w-full overflow-hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-content {
+    @apply flex transition-transform duration-150 ease-out;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .carousel-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .carousel-item {
+    @apply flex-shrink-0;
+    scroll-snap-align: center;
+    overscroll-behavior-x: contain;
+  }
+  
+  /* Мобильные устройства (по умолчанию) */
+  .carousel-item {
+    @apply w-full;
+  }
+  
+  /* Планшеты и выше */
+  @media (min-width: 640px) {
+    .carousel-item {
+      @apply w-1/2;
+    }
+  }
+  
+  /* Десктопы и выше */
+  @media (min-width: 1024px) {
+    .carousel-item {
+      @apply w-1/3;
+    }
+  }
+  
+  /* Большие экраны */
+  @media (min-width: 1280px) {
+    .carousel-item {
+      @apply w-1/3;
+    }
+  }
+  
+  /* Очень большие экраны */
+  @media (min-width: 1536px) {
+    .carousel-item {
+      @apply w-1/3;
+    }
+  }
+  
+
+  
+  /* Дополнительные стили для лучшей адаптивности */
+  .carousel-item .product-card {
+    @apply h-full;
+  }
+  
+  /* Обеспечиваем минимальную ширину для карточек */
+  @media (min-width: 640px) {
+    .carousel-item .product-card {
+      @apply min-w-[280px];
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .carousel-item .product-card {
+      @apply min-w-[320px];
+    }
+  }
+  
+  /* Плавные переходы между экранами */
+  .carousel-item {
+    @apply transition-all duration-150 ease-out;
+  }
+  
+  /* Оптимизация для touch устройств */
+  @media (hover: none) and (pointer: coarse) {
+    .carousel-container {
+      @apply touch-pan-x;
+    }
+  }
+  
+  /* Дополнительные медиа-запросы для лучшей адаптивности */
+  @media (max-width: 639px) {
+    .carousel-item {
+      @apply px-2;
+    }
+    
+    .carousel-item .product-card {
+      @apply min-w-[280px] max-w-[320px] mx-auto;
+    }
+  }
+  
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .carousel-item {
+      @apply px-2;
+    }
+    
+    .carousel-item .product-card {
+      @apply min-w-[280px] max-w-[350px];
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .carousel-item {
+      @apply px-3;
+    }
+    
+    .carousel-item .product-card {
+      @apply min-w-[300px] max-w-[380px];
+    }
+  }
+  
+  /* Стили для кнопок навигации */
+  .carousel-container .carousel-previous,
+  .carousel-container .carousel-next {
+    @apply bg-primary/10 hover:bg-primary/20 text-primary border-primary/20 hover:border-primary/40;
+  }
+  
+  /* Отключение кнопок на границах */
+  .carousel-container .carousel-previous[data-disabled="true"],
+  .carousel-container .carousel-next[data-disabled="true"] {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  .carousel-container .carousel-previous[data-disabled="true"]:hover,
+  .carousel-container .carousel-next[data-disabled="true"]:hover {
+    @apply scale-100 shadow-none;
+  }
+  
+  /* Анимации для плавного появления карточек */
+  .carousel-item {
+    @apply animate-fade-in animate-slide-in-from-bottom;
+    animation-duration: 0.3s;
+  }
+  
+  /* Оптимизация для высоких DPI экранов */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .carousel-item .product-card img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+  
+  /* Дополнительные улучшения для слайдера */
+  .carousel-container:hover .carousel-item {
+    @apply transform scale-[1.02] transition-transform duration-150;
+  }
+  
+  /* Улучшенные стили для карточек товаров */
+  .product-card {
+    @apply backdrop-blur-sm bg-opacity-95;
+  }
+  
+  .product-card:hover {
+    @apply transform -translate-y-1 shadow-xl transition-all duration-150 ease-out;
+  }
+  
+  /* Оптимизация для мобильных устройств */
+  @media (max-width: 639px) {
+    .carousel-container {
+      @apply -mx-2;
+    }
+    
+    .carousel-content {
+      @apply px-2;
+    }
+  }
+  
+  /* Дополнительная оптимизация для очень маленьких экранов */
+  @media (max-width: 480px) {
+    .carousel-container {
+      @apply -mx-1;
+    }
+    
+    .carousel-content {
+      @apply px-1;
+    }
+    
+    .carousel-item {
+      @apply px-1;
+    }
+    
+    .carousel-item .product-card {
+      @apply min-w-[240px] max-w-[280px] mx-auto;
+    }
+  }
+  
+  /* Финальные улучшения для всех размеров экрана */
+  .carousel-item .product-card img {
+    @apply transition-all duration-150 ease-out;
+  }
+  
+  .carousel-item .product-card:hover img {
+    @apply scale-105;
+  }
+  
+  /* Улучшенные стили для названий товаров */
+  .product-card .card-title {
+    @apply transition-all duration-150 ease-out;
+  }
+  
+  .product-card:hover .card-title {
+    @apply text-primary;
+  }
+  
+  /* Оптимизация для планшетов */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .carousel-item .product-card {
+      @apply mx-2;
+    }
+  }
+  
+  /* Специальная оптимизация для экранов 640px */
+  @media (min-width: 640px) and (max-width: 767px) {
+    .carousel-item .product-card {
+      @apply min-w-[200px] max-w-[250px];
+    }
+    
+    .carousel-content {
+      @apply -ml-1;
+    }
+    
+    .carousel-item {
+      @apply pl-1;
+    }
+  }
+  
+  /* Оптимизация для больших экранов */
+  @media (min-width: 1024px) {
+    .carousel-item .product-card {
+      @apply mx-3;
+    }
+  }
+}
