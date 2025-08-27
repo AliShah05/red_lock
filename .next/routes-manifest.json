@@ -1,0 +1,128 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/katalog",
+      "regex": "^/katalog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog(?:/)?$"
+    },
+    {
+      "page": "/katalog/bronenakladki",
+      "regex": "^/katalog/bronenakladki(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog/bronenakladki(?:/)?$"
+    },
+    {
+      "page": "/katalog/budzhetnye-zamki",
+      "regex": "^/katalog/budzhetnye\\-zamki(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog/budzhetnye\\-zamki(?:/)?$"
+    },
+    {
+      "page": "/katalog/komfort-klass",
+      "regex": "^/katalog/komfort\\-klass(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog/komfort\\-klass(?:/)?$"
+    },
+    {
+      "page": "/katalog/premium-klass",
+      "regex": "^/katalog/premium\\-klass(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog/premium\\-klass(?:/)?$"
+    },
+    {
+      "page": "/katalog/tsilindry-zamka",
+      "regex": "^/katalog/tsilindry\\-zamka(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog/tsilindry\\-zamka(?:/)?$"
+    },
+    {
+      "page": "/nashi-raboty",
+      "regex": "^/nashi\\-raboty(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nashi\\-raboty(?:/)?$"
+    },
+    {
+      "page": "/remont-dverey",
+      "regex": "^/remont\\-dverey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/remont\\-dverey(?:/)?$"
+    },
+    {
+      "page": "/uslugi",
+      "regex": "^/uslugi(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/uslugi(?:/)?$"
+    },
+    {
+      "page": "/vskrytie-zamkov",
+      "regex": "^/vskrytie\\-zamkov(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vskrytie\\-zamkov(?:/)?$"
+    },
+    {
+      "page": "/zamena-zamkov",
+      "regex": "^/zamena\\-zamkov(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/zamena\\-zamkov(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}
